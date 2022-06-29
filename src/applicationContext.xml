@@ -7,6 +7,9 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!--  load the properties file: sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+	
     <!-- Define your beans here -->
     <bean id="myCoach"
     	class="com.inversionOfControl.springDemo.TrackCoach">
@@ -19,13 +22,23 @@
     </bean>
     
     <!--  define the dependency -->
-    <bean id="myFortuneService" class ="com.inversionOfControl.springDemo.HappyFortuneService">
+    <bean id="myFortuneService" 
+    class ="com.inversionOfControl.springDemo.HappyFortuneService">
     </bean>
     
-    <bean id="myCricketCoach" class="com.inversionOfControl.springDemo.CricketCoach">
-    
+    <bean id="myCricketCoach" 
+    class="com.inversionOfControl.springDemo.CricketCoach">
     	<!--  set up setter injection -->
     	<property name="fortuneService" ref="myFortuneService" />
+    	
+    	<!--  inject properties file values -->
+    	<property name="emailAddress" value="${foo.email}" />
+    	<property name="team" value="${foo.team}" />
+    	
+    	<!--  hard coded / literal values
+    	<property name="emailAddress" value="fakeemailaddress@fakeaddress.com" />
+    	<property name="team" value="The MVP Cricket Team" />
+    	 -->
     </bean>
     
 </beans>
