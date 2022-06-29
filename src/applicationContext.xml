@@ -9,7 +9,11 @@
 
     <!-- Define your beans here -->
     <bean id="myCoach"
-    	class="com.inversionOfControl.springDemo.TrackCoach">
+    	class="com.inversionOfControl.springDemo.BaseballCoach">
+    </bean>
+    
+    <bean id="secondCoach"
+    	class="com.inversionOfControl.springDemo.SwimmingCoach">
     </bean>
 </beans>
 
