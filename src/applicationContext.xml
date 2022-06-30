@@ -41,6 +41,12 @@
     	 -->
     </bean>
     
+    <!--  define new random generator dependency -->
+    <bean id="randomFortune"
+    	class="com.inversionOfControl.springDemo.RandomFortuneGenerator">
+    	
+    </bean>
+    
 </beans>
 
 
